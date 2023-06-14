@@ -7,7 +7,7 @@ jobs:
       - image: "circleci/sshd:0.1"
     steps:
       - checkout
-      - run: ssh -i $KEY -o "StrictHostKeyChecking no" ubuntu@34.215.212.181 "cat /var/log/nginx/access.log"
+      - run: chmod 400 $KEY && ssh -i $KEY -o "StrictHostKeyChecking no" ubuntu@34.215.212.181 "cat /var/log/nginx/access.log"
 
 # Orchestrate our job run sequence
 workflows:
