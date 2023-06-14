@@ -7,7 +7,7 @@ jobs:
       - image: "circleci/sshd:0.1"
     steps:
       - checkout
-      - run: touch key.pem && echo $KEY > key.pem && ssh -i "key.pem" -o "StrictHostKeyChecking no" ubuntu@34.215.212.181 "cat /var/log/nginx/access.log"
+      - run: touch key.pem && echo $KEY > key.pem && chmod 400 key.pem && ssh -i "key.pem" -o "StrictHostKeyChecking no" ubuntu@34.215.212.181 "cat /var/log/nginx/access.log"
 
 # Orchestrate our job run sequence
 workflows:
